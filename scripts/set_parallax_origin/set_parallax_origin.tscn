@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b78g1cqjijk7u"]
+
+[ext_resource type="Script" uid="uid://44e0fvdl84dn" path="res://scripts/set_parallax_origin/set_parallax_origin.gd" id="1_70iw8"]
+
+[node name="SetParallaxOrigin" type="Node"]
+script = ExtResource("1_70iw8")

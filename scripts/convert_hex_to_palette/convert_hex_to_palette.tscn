@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://fmbuqlk83p1v"]
+
+[ext_resource type="Script" uid="uid://hqp2k2km6us4" path="res://scripts/convert_hex_to_palette/convert_hex_to_palette.gd" id="1_bd541"]
+
+[node name="ConvertHexToPalette" type="Node"]
+script = ExtResource("1_bd541")
+hex_path = "res://assets/pico-8.txt"

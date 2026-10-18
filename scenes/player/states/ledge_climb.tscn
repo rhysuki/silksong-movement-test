@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8n848xob5jmd"]
+
+[ext_resource type="Script" uid="uid://cf8xcqyy4lipk" path="res://scenes/player/states/ledge_climb.gd" id="1_f1lr6"]
+
+[node name="LedgeClimb" type="Node"]
+script = ExtResource("1_f1lr6")

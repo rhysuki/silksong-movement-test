@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://l8qxfcaj6wgs"]
+
+[ext_resource type="Script" uid="uid://b1j5k4bhf6sd7" path="res://scenes/player/states/down_attack.gd" id="1_7yr2i"]
+
+[node name="DownAttack" type="Node"]
+script = ExtResource("1_7yr2i")

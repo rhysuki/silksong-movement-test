@@ -1,0 +1,18 @@
+[gd_scene load_steps=8 format=3 uid="uid://pkaerhm4hk7t"]
+
+[ext_resource type="Script" uid="uid://bj7govop2ceqt" path="res://scripts/game/game.gd" id="1_aetr4"]
+[ext_resource type="PackedScene" uid="uid://dv020u1okqvye" path="res://scenes/fx/circle_particle/circle_particle.tscn" id="2_37d5n"]
+[ext_resource type="PackedScene" uid="uid://bg06wxlvyfl4q" path="res://scenes/fx/dust_particle/dust_particle.tscn" id="3_fjm2l"]
+[ext_resource type="PackedScene" uid="uid://b3url3ikxfr5l" path="res://scenes/fx/slash_particle/slash_particle.tscn" id="4_fjm2l"]
+[ext_resource type="PackedScene" uid="uid://cq0ldt4yxcyet" path="res://scenes/fx/diagonal_slash_particle/diagonal_slash_particle.tscn" id="5_m1oeg"]
+[ext_resource type="PackedScene" uid="uid://4mkkdhksukmk" path="res://scenes/fx/dash_particle/dash_particle.tscn" id="6_4p0kb"]
+[ext_resource type="PackedScene" uid="uid://dc6ob6ds1feeq" path="res://scenes/fx/hit_particle/hit_particle.tscn" id="7_4p0kb"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_aetr4")
+particle_circle = ExtResource("2_37d5n")
+particle_dust = ExtResource("3_fjm2l")
+particle_slash = ExtResource("4_fjm2l")
+particle_diagonal_slash = ExtResource("5_m1oeg")
+particle_dash = ExtResource("6_4p0kb")
+particle_hit = ExtResource("7_4p0kb")

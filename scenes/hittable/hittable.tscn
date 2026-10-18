@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://djevrnex83kw4"]
+
+[ext_resource type="Script" uid="uid://cjdqqhoxkjjtb" path="res://scenes/hittable/hittable.gd" id="1_agun1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agun1"]
+resource_local_to_scene = true
+size = Vector2(8, 8)
+
+[node name="Hittable" type="Area2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_agun1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_agun1")
+debug_color = Color(0, 0.6315035, 0.46482646, 0.41960785)

@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://djbafca146a17"]
+
+[ext_resource type="Texture2D" uid="uid://bnx0ve40tfwl2" path="res://assets/images/panel.png" id="1_i24kx"]
+[ext_resource type="Script" uid="uid://ltsariyychwv" path="res://scenes/ui/hornet_panel/hornet_panel.gd" id="2_m4dwl"]
+[ext_resource type="Texture2D" uid="uid://bw0bo8sc3gqd3" path="res://assets/images/tileset.png" id="2_tmwb4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m4dwl"]
+texture = ExtResource("1_i24kx")
+texture_margin_left = 9.0
+texture_margin_top = 9.0
+texture_margin_right = 9.0
+texture_margin_bottom = 9.0
+axis_stretch_horizontal = 1
+
+[node name="HornetPanel" type="Panel" node_paths=PackedStringArray("_hornet_head", "_needle")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_m4dwl")
+script = ExtResource("2_m4dwl")
+_hornet_head = NodePath("HornetHead/Control/Sprite2D")
+_needle = NodePath("Needle/Control/Sprite2D")
+
+[node name="Background" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 4
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+z_index = -1
+layout_mode = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="HornetHead" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 4
+
+[node name="Control" type="Control" parent="HornetHead"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="HornetHead/Control"]
+texture = ExtResource("2_tmwb4")
+hframes = 16
+vframes = 4
+frame = 33
+
+[node name="Needle" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="Control" type="Control" parent="Needle"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="Needle/Control"]
+texture = ExtResource("2_tmwb4")
+hframes = 16
+vframes = 4
+frame = 34

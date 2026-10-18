@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsr3int6mbqo5"]
+
+[ext_resource type="Script" uid="uid://7y4ahjjx513e" path="res://scenes/player/states/dash_jump_windup.gd" id="1_p80l7"]
+
+[node name="DashJumpWindup" type="Node"]
+script = ExtResource("1_p80l7")

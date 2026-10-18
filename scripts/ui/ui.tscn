@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://drm4cuuh2fvan"]
+
+[ext_resource type="Script" uid="uid://m36telpw0os3" path="res://scripts/ui/ui.gd" id="1_gtuoj"]
+[ext_resource type="Shader" uid="uid://ean341nsrqng" path="res://scripts/limit_colors_to_palette.gdshader" id="2_evcu4"]
+[ext_resource type="Texture2D" uid="uid://c3qyrge4b36d4" path="res://assets/images/pico8_palette.png" id="3_yce8d"]
+[ext_resource type="PackedScene" uid="uid://sl3f146v1knk" path="res://scenes/ui/text_box/text_box.tscn" id="4_yce8d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gtuoj"]
+shader = ExtResource("2_evcu4")
+shader_parameter/is_screen_shader = true
+shader_parameter/palette = ExtResource("3_yce8d")
+shader_parameter/r_weight = 0.22
+shader_parameter/g_weight = 0.4
+shader_parameter/b_weight = 0.07
+
+[node name="Ui" type="CanvasLayer" unique_id=163337704 node_paths=PackedStringArray("text_box")]
+layer = 100
+script = ExtResource("1_gtuoj")
+text_box = NodePath("TextBox")
+
+[node name="LimitColorsBackBuffer" type="BackBufferCopy" parent="." unique_id=646079306]
+z_index = 1
+copy_mode = 2
+rect = Rect2(0, 0, 128, 128)
+
+[node name="ColorRect" type="ColorRect" parent="LimitColorsBackBuffer" unique_id=1086634784]
+material = SubResource("ShaderMaterial_gtuoj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextBox" parent="." unique_id=456307445 instance=ExtResource("4_yce8d")]

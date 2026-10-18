@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0el3gqrq3res"]
+
+[ext_resource type="Script" uid="uid://mjqb7hr2sec6" path="res://scenes/hittable/hittable_block/hittable_block.gd" id="1_nmkuv"]
+[ext_resource type="Texture2D" uid="uid://bw0bo8sc3gqd3" path="res://assets/images/tileset.png" id="1_wuvhj"]
+[ext_resource type="PackedScene" uid="uid://djevrnex83kw4" path="res://scenes/hittable/hittable.tscn" id="2_nmkuv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q6r6c"]
+friction = 0.8
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmkuv"]
+resource_local_to_scene = true
+size = Vector2(8, 4)
+
+[node name="HittableBlock" type="RigidBody2D"]
+z_index = -1
+collision_layer = 0
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_q6r6c")
+script = ExtResource("1_nmkuv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_wuvhj")
+hframes = 16
+vframes = 4
+frame = 37
+region_rect = Rect2(18, 9, 6, 5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-4, 3, -4, 0, -3, 0, -3, -2, -2, -2, -2, -4, -1, -4, -1, -5, 1, -5, 1, -4, 2, -4, 2, -5, 4, -5, 4, -3, 3, -3, 3, -2, 4, -2, 4, 0, 3, 0, 3, 3, 2, 3, 2, 2, 1, 2, 1, 3)
+
+[node name="Hittable" parent="." instance=ExtResource("2_nmkuv")]
+is_bouncy = false
+
+[node name="CollisionShape2D" parent="Hittable" index="0"]
+shape = SubResource("RectangleShape2D_nmkuv")
+
+[editable path="Hittable"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://npg5k602st78"]
+
+[ext_resource type="Script" uid="uid://dl8q61f8k2ss" path="res://scenes/circle/circle.gd" id="1_54ngo"]
+
+[node name="Circle" type="Node2D"]
+script = ExtResource("1_54ngo")
+radius = 1.0

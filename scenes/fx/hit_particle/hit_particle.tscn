@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc6ob6ds1feeq"]
+
+[ext_resource type="Script" uid="uid://bj6n2wg07oqa8" path="res://scenes/fx/hit_particle/hit_particle.gd" id="1_w7hq8"]
+
+[sub_resource type="Curve" id="Curve_wq1ff"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+amount = 16
+lifetime = 0.45
+explosiveness = 1.0
+lifetime_randomness = 1.0
+local_coords = true
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 50.0
+initial_velocity_max = 120.0
+damping_min = 350.0
+damping_max = 350.0
+scale_amount_curve = SubResource("Curve_wq1ff")
+script = ExtResource("1_w7hq8")

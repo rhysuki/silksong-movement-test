@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://c24pblbqtr2uy"]
+
+[ext_resource type="Script" uid="uid://5njmmu027taw" path="res://scenes/ui/typewriter_label/typewriter_effect.gd" id="2_4lgoq"]
+[ext_resource type="Script" uid="uid://dq6pn2g250rqx" path="res://scenes/ui/typewriter_label/typewriter_label.gd" id="3_4lgoq"]
+
+[sub_resource type="Curve" id="Curve_xkgcf"]
+_data = [Vector2(0, 0), 0.0, 3.70755, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_4lgoq"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.114503816, 0.26717559, 0.41984734, 0.610687)
+colors = PackedColorArray(0, 0, 0, 1, 0.113725, 0.168627, 0.32549, 1, 0.513726, 0.462745, 0.611765, 1, 0.760784, 0.764706, 0.780392, 1, 1, 1, 1, 1)
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_54b8o"]
+script = ExtResource("2_4lgoq")
+print_speed = 60.0
+_start_offset = Vector2(0, 4)
+color_gradient = SubResource("Gradient_4lgoq")
+_easing_curve = SubResource("Curve_xkgcf")
+metadata/_custom_type_script = "uid://5njmmu027taw"
+
+[node name="TypewriterLabel" type="RichTextLabel" node_paths=PackedStringArray("_voice_timer")]
+offset_right = 128.0
+offset_bottom = 128.0
+bbcode_enabled = true
+text = " [typewriter][center][color=gold]- AMBER FOREST -[/color]
+you've been here before"
+custom_effects = [SubResource("RichTextEffect_54b8o")]
+script = ExtResource("3_4lgoq")
+_voice_timer = NodePath("VoiceTimer")
+
+[node name="VoiceTimer" type="Timer" parent="."]
+wait_time = 0.075
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_right = 255.0
+offset_bottom = 55.0
+color = Color(0, 0, 0, 1)

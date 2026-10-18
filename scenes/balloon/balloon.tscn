@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgopjnsffayq"]
+
+[ext_resource type="Texture2D" uid="uid://bw0bo8sc3gqd3" path="res://assets/images/tileset.png" id="1_jqtd5"]
+[ext_resource type="Script" uid="uid://bhv8ouysd7rp6" path="res://scenes/balloon/balloon.gd" id="1_o0te0"]
+[ext_resource type="PackedScene" uid="uid://djevrnex83kw4" path="res://scenes/hittable/hittable.tscn" id="4_784ay"]
+
+[sub_resource type="Animation" id="Animation_2c2u2"]
+resource_name = "bounce"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.5),
+"transitions": PackedFloat32Array(1, 0.2871747, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 4), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_784ay"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_af703"]
+_data = {
+&"RESET": SubResource("Animation_784ay"),
+&"bounce": SubResource("Animation_2c2u2")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_784ay"]
+radius = 6.0827627
+
+[node name="Balloon" type="Node2D" node_paths=PackedStringArray("hittable", "animation_player")]
+script = ExtResource("1_o0te0")
+hittable = NodePath("Hittable")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_af703")
+}
+autoplay = "RESET"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jqtd5")
+hframes = 16
+vframes = 4
+frame = 32
+
+[node name="Hittable" parent="." instance=ExtResource("4_784ay")]
+
+[node name="CollisionShape2D" parent="Hittable" index="0"]
+shape = SubResource("CircleShape2D_784ay")
+
+[editable path="Hittable"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4ramaj014bip"]
+
+[ext_resource type="Script" uid="uid://b46g0sgx4yndu" path="res://scenes/camera_limit/camera_limit.gd" id="1_jsxy1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3whts"]
+resource_local_to_scene = true
+size = Vector2(128, 128)
+
+[node name="CameraLimit" type="Area2D" node_paths=PackedStringArray("_collision")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_jsxy1")
+_collision = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3whts")
+debug_color = Color(2.59906e-06, 0.627939, 0.518538, 0.196078)
